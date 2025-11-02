@@ -1,4 +1,5 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 
 QUOTES = {
     "monday": "The future depends on what you do today. - Mahatma Gandhi",
@@ -77,4 +78,7 @@ def daily_quote_number(request, day_of_week):
 
     days_of_week = list(QUOTES.keys())
     day_name = days_of_week[day_of_week - 1]
-    return HttpResponseRedirect(f"/quotes/{day_name}")
+
+    redirect_url = reverse("quotes-name", args=[day_name])
+    # return HttpResponseRedirect(f"/quotes/{day_name}")
+    return HttpResponseRedirect(redirect_url)
