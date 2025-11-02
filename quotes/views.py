@@ -1,5 +1,19 @@
 from django.http import HttpResponse, HttpResponseNotFound
 
+# Shared quotes dictionary
+QUOTES = {
+    "monday": "The future depends on what you do today. - Mahatma Gandhi",
+    "tuesday": "It does not matter how slowly you go as long as you do not stop. - Confucius",
+    "wednesday": "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+    "thursday": "Believe you can and you're halfway there. - Theodore Roosevelt",
+    "friday": "The only way to do great work is to love what you do. - Steve Jobs",
+    "saturday": "In the middle of every difficulty lies opportunity. - Albert Einstein",
+    "sunday": "Happiness is not something ready made. It comes from your own actions. - Dalai Lama",
+}
+
+# Days mapping as tuple (index 0 = Monday, index 6 = Sunday)
+DAYS = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
+
 
 # Create your views here.
 def index(request):
@@ -49,21 +63,22 @@ def index(request):
 
 
 def daily_quote(request, day_of_week):
-    quotes = {
-        "monday": "The future depends on what you do today. - Mahatma Gandhi",
-        "tuesday": "It does not matter how slowly you go as long as you do not stop. - Confucius",
-        "wednesday": "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
-        "thursday": "Believe you can and you're halfway there. - Theodore Roosevelt",
-        "friday": "The only way to do great work is to love what you do. - Steve Jobs",
-        "saturday": "In the middle of every difficulty lies opportunity. - Albert Einstein",
-        "sunday": "Happiness is not something ready made. It comes from your own actions. - Dalai Lama",
-    }
-
     day_lower = day_of_week.lower()
-    if day_lower not in quotes:
+    if day_lower not in QUOTES:
         return HttpResponseNotFound(
             "Day not found! Please enter a valid day of the week."
         )
 
-    quote = quotes[day_lower]
+    quote = QUOTES[day_lower]
     return HttpResponse(f"{day_of_week.capitalize()} Quote: '{quote}'")
+
+
+def daily_quote_number(request, day_of_week):
+    if not 1 <= day_of_week <= 7:
+        return HttpResponseNotFound(
+            "Invalid day number! Please enter a number between 1 and 7 (1=Monday, 7=Sunday)."
+        )
+
+    day_name = DAYS[day_of_week - 1]  # Convert 1-7 to 0-6 index
+    quote = QUOTES[day_name]
+    return HttpResponse(f"{day_name.capitalize()} Quote: '{quote}'")

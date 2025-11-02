@@ -10,5 +10,6 @@ urlpatterns = [
     # path("friday", views.friday),
     # path("saturday", views.saturday),
     # path("sunday", views.sunday),
-    path("<day_of_week>", views.daily_quote),
+    path("<int:day_of_week>", views.daily_quote_number),  # /quotes/5
+    path("<str:day_of_week>", views.daily_quote),  # /quotes/friday
 ]
