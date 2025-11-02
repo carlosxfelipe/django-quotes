@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 
 # Shared quotes dictionary
 QUOTES = {
@@ -80,5 +80,4 @@ def daily_quote_number(request, day_of_week):
         )
 
     day_name = DAYS[day_of_week - 1]  # Convert 1-7 to 0-6 index
-    quote = QUOTES[day_name]
-    return HttpResponse(f"{day_name.capitalize()} Quote: '{quote}'")
+    return HttpResponseRedirect(f"/quotes/{day_name}")
