@@ -3,11 +3,12 @@ from . import views
 
 urlpatterns = [
     path("", views.index),
-    path("monday", views.monday),
-    path("tuesday", views.tuesday),
-    path("wednesday", views.wednesday),
-    path("thursday", views.thursday),
-    path("friday", views.friday),
-    path("saturday", views.saturday),
-    path("sunday", views.sunday),
+    # path("monday", views.monday),
+    # path("tuesday", views.tuesday),
+    # path("wednesday", views.wednesday),
+    # path("thursday", views.thursday),
+    # path("friday", views.friday),
+    # path("saturday", views.saturday),
+    # path("sunday", views.sunday),
+    path("<day_of_week>", views.daily_quote),
 ]
