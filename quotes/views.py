@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 
 
 # Create your views here.
@@ -58,7 +58,12 @@ def daily_quote(request, day_of_week):
         "saturday": "In the middle of every difficulty lies opportunity. - Albert Einstein",
         "sunday": "Happiness is not something ready made. It comes from your own actions. - Dalai Lama",
     }
-    quote = quotes.get(
-        day_of_week.lower(), "Invalid day! Please enter a valid day of the week."
-    )
+
+    day_lower = day_of_week.lower()
+    if day_lower not in quotes:
+        return HttpResponseNotFound(
+            "Day not found! Please enter a valid day of the week."
+        )
+
+    quote = quotes[day_lower]
     return HttpResponse(f"{day_of_week.capitalize()} Quote: '{quote}'")
