@@ -14,7 +14,17 @@ QUOTES = {
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Welcome to the Quotes App!")
+    # return HttpResponse("Welcome to the Quotes App!")
+    list_items = ""
+    days_of_week = list(QUOTES.keys())
+
+    for day in days_of_week:
+        # list_items += f"<li><a href='/quotes/{day}'>{day.capitalize()}</a></li>"
+
+        day_path = reverse("quotes-name", args=[day])
+        list_items += f"<li><a href='{day_path}'>{day.capitalize()}</a></li>"
+
+    return HttpResponse(f"<h1>Welcome to the Quotes App!</h1><ul>{list_items}</ul>")
 
 
 # def monday(request):
