@@ -1,6 +1,5 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 
-# Shared quotes dictionary
 QUOTES = {
     "monday": "The future depends on what you do today. - Mahatma Gandhi",
     "tuesday": "It does not matter how slowly you go as long as you do not stop. - Confucius",
@@ -10,9 +9,6 @@ QUOTES = {
     "saturday": "In the middle of every difficulty lies opportunity. - Albert Einstein",
     "sunday": "Happiness is not something ready made. It comes from your own actions. - Dalai Lama",
 }
-
-# Days mapping as tuple (index 0 = Monday, index 6 = Sunday)
-DAYS = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
 
 
 # Create your views here.
@@ -79,5 +75,6 @@ def daily_quote_number(request, day_of_week):
             "Invalid day number! Please enter a number between 1 and 7 (1=Monday, 7=Sunday)."
         )
 
-    day_name = DAYS[day_of_week - 1]  # Convert 1-7 to 0-6 index
+    days_of_week = list(QUOTES.keys())
+    day_name = days_of_week[day_of_week - 1]
     return HttpResponseRedirect(f"/quotes/{day_name}")
