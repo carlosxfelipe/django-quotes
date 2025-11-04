@@ -10,11 +10,11 @@
         background-color: #f9f9f9;
         color: #333;
         margin: 0;
-        padding: 0;
-        text-align: center;
+        padding: 20px;
+        text-align: left;
       }
       .container {
-        margin-top: 15%;
+        margin-top: 0%;
       }
       h1 {
         font-size: 2rem;
@@ -29,11 +29,25 @@
   <body>
     <div class="container">
       <h1>{{ title }}</h1>
+
+      {% if name == "Carlos Felipe Araújo" %}
+      <p>Welcome, Carlos! You have special access.</p>
+      {% else %}
+      <p>Welcome, guest!</p>
+      {% endif %}
+
       <p>{{ content }}</p>
-
       <p>Date: {{ today | date:"d/m/Y" }}</p>
-
       <p>Your name in uppercase: {{ name | upper }}</p>
+
+      <h2>Tech Stack:</h2>
+      <ul>
+        {% for tool in stack %}
+        <li>{{ tool }}</li>
+        {% empty %}
+        <li>No tools available.</li>
+        {% endfor %}
+      </ul>
     </div>
   </body>
 </html>

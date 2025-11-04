@@ -5,6 +5,7 @@ from datetime import date
 # Create your views here.
 def home(request):
     today = date.today()
+    stack = ["Python", "Django", "JavaScript", "HTML", "CSS"]
 
     return render(
         request,
@@ -14,5 +15,6 @@ def home(request):
             "content": "Welcome to the Home Page!",
             "name": "Carlos Felipe Araújo",
             "today": today,
+            "stack": stack,
         },
     )
