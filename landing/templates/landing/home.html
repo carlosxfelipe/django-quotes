@@ -32,6 +32,7 @@
 
       {% if name == "Carlos Felipe Araújo" %}
       <p>Welcome, Carlos! You have special access.</p>
+      <p>Your age is: {{ age }}</p>
       {% else %}
       <p>Welcome, guest!</p>
       {% endif %}
@@ -43,7 +44,9 @@
       <h2>Tech Stack:</h2>
       <ul>
         {% for tool in stack %}
-        <li>{{ tool }}</li>
+        <li>
+          <a href="{% url 'stack-name' tool.id %}">{{tool.name}}</a>
+        </li>
         {% empty %}
         <li>No tools available.</li>
         {% endfor %}
