@@ -1,56 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
-        margin: 0;
-        padding: 20px;
-        text-align: left;
-      }
-      .container {
-        margin-top: 0%;
-      }
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-      }
-      p {
-        color: #555;
-        margin-bottom: 1.5rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>{{ title }}</h1>
+{% extends "base.html" %}
 
-      {% if name == "Carlos Felipe Araújo" %}
-      <p>Welcome, Carlos! You have special access.</p>
-      <p>Your age is: {{ age }}</p>
-      {% else %}
-      <p>Welcome, guest!</p>
-      {% endif %}
+{% block title %}
+  {{ title }}
+{% endblock %}
 
-      <p>{{ content }}</p>
-      <p>Date: {{ today | date:"d/m/Y" }}</p>
-      <p>Your name in uppercase: {{ name | upper }}</p>
+{% block content %}
+  <h1>{{ title }}</h1>
 
-      <h2>Tech Stack:</h2>
-      <ul>
-        {% for tool in stack %}
-        <li>
-          <a href="{% url 'stack-name' tool.id %}">{{tool.name}}</a>
-        </li>
-        {% empty %}
-        <li>No tools available.</li>
-        {% endfor %}
-      </ul>
-    </div>
-  </body>
-</html>
+  {% if name == "Carlos Felipe Araújo" %}
+  <p>Welcome, Carlos! You have special access.</p>
+  <p>Your age is: {{ age }}</p>
+  {% else %}
+  <p>Welcome, guest!</p>
+  {% endif %}
+
+  <p>{{ content }}</p>
+  <p>Date: {{ today | date:"d/m/Y" }}</p>
+  <p>Your name in uppercase: {{ name | upper }}</p>
+
+  <h2>Tech Stack:</h2>
+  <ul>
+    {% for tool in stack %}
+    <li><a href="{% url 'stack-name' tool.id %}">{{ tool.name }}</a></li>
+    {% empty %}
+    <li>No tools available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
