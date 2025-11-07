@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 
@@ -13,18 +14,18 @@ QUOTES = {
 
 
 # Create your views here.
-def index(request):
-    # return HttpResponse("Welcome to the Quotes App!")
-    list_items = ""
-    days_of_week = list(QUOTES.keys())
+# def index(request):
+#     # return HttpResponse("Welcome to the Quotes App!")
+#     list_items = ""
+#     days_of_week = list(QUOTES.keys())
 
-    for day in days_of_week:
-        # list_items += f"<li><a href='/quotes/{day}'>{day.capitalize()}</a></li>"
+#     for day in days_of_week:
+#         # list_items += f"<li><a href='/quotes/{day}'>{day.capitalize()}</a></li>"
 
-        day_path = reverse("quotes-name", args=[day])
-        list_items += f"<li><a href='{day_path}'>{day.capitalize()}</a></li>"
+#         day_path = reverse("quotes-name", args=[day])
+#         list_items += f"<li><a href='{day_path}'>{day.capitalize()}</a></li>"
 
-    return HttpResponse(f"<h1>Welcome to the Quotes App!</h1><ul>{list_items}</ul>")
+#     return HttpResponse(f"<h1>Welcome to the Quotes App!</h1><ul>{list_items}</ul>")
 
 
 # def monday(request):
@@ -67,6 +68,16 @@ def index(request):
 #     return HttpResponse(
 #         "Sunday Quote: 'Happiness is not something ready made. It comes from your own actions.' - Dalai Lama"
 #     )
+
+
+def index(request):
+    days_of_week = list(QUOTES.keys())
+
+    return render(
+        request,
+        "quotes/index.html",
+        {"title": "Welcome to the Quotes App!", "days": days_of_week},
+    )
 
 
 def daily_quote(request, day_of_week):
