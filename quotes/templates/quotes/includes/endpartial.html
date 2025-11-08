@@ -1,0 +1,66 @@
+<div class="end-partial-info">
+  <h4>🎯 Quick Access</h4>
+  <p>Available days: {{ days|length }} options</p>
+  <p>
+    <small>
+      You can also access quotes directly by using URLs like 
+      <code>/quotes/monday</code> or <code>/quotes/1</code>
+    </small>
+  </p>
+  
+  {% if days %}
+    <div class="days-summary">
+      <strong>Days available:</strong>
+      {% for day in days %}
+        <span class="day-tag">{{ day|capfirst }}</span>{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  .end-partial-info {
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-card-border-color);
+    border-left: 4px solid var(--pico-primary);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0 1rem 0;
+    border-radius: 0 var(--pico-border-radius) var(--pico-border-radius) 0;
+    box-shadow: var(--pico-card-box-shadow);
+  }
+  
+  .end-partial-info h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--pico-primary);
+  }
+  
+  .end-partial-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--pico-color);
+  }
+  
+  .end-partial-info code {
+    background: var(--pico-code-background-color);
+    color: var(--pico-code-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+  
+  .days-summary {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--pico-color);
+  }
+  
+  .day-tag {
+    background: var(--pico-primary-background);
+    color: var(--pico-primary-inverse);
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+</style>

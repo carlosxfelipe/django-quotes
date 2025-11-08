@@ -35,7 +35,6 @@
 <div class="content-wrapper">
   <h1>Welcome to the Quotes App!</h1>
   
-  <!-- Incluindo o partial/fragmento -->
   {% include "./includes/partial.html" %}
 
   <ul>  
@@ -45,5 +44,7 @@
       </li>
     {% endfor %}
   </ul>
+  
+  {% include "./includes/endpartial.html" with days=days %}
 </div>
 {% endblock %}
