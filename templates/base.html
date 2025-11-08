@@ -4,29 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.classless.jade.min.css"
+    >
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
-        margin: 0;
-        padding: 20px;
-        text-align: left;
+      :root {
+        --pico-font-size: 87.5%;
+        font-family: 'Ubuntu', sans-serif;
       }
-      .container {
-        margin-top: 0%;
-      }
+
       h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.75rem;
       }
-      p {
-        color: #555;
-        margin-bottom: 1.5rem;
+      h2 {
+        font-size: 1.5rem;
+      }
+      h3 {
+        font-size: 1.25rem;
+      }
+      h4 {
+        font-size: 1.1rem;
+      }
+      h5 {
+        font-size: 1rem;
+      }
+      h6 {
+        font-size: 0.9rem;
       }
     </style>
   </head>
   <body>
     <div class="container">{% block content %}{% endblock %}</div>
+
+    <script>
+      const switchTheme = (theme) => {
+        if (theme === "auto") {
+          document.documentElement.removeAttribute("data-theme");
+        } else {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      };
+
+      document.querySelectorAll("[data-theme-switcher]").forEach(
+        (el) => {
+          el.addEventListener("click", (e) => {
+            e.preventDefault();
+            switchTheme(el.getAttribute("data-theme-switcher"));
+          });
+        },
+      );
+    </script>
   </body>
 </html>
