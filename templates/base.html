@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}Django Quotes - Citações inspiradoras para cada dia da semana{% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}citações, frases, motivação, inspiração, Django{% endblock %}" />
+    <meta name="author" content="Carlos Felipe Araújo" />
+    
+    <title>{% block title %}Django Quotes{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>" />
+    
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.classless.jade.min.css"
@@ -34,20 +42,76 @@
       h6 {
         font-size: 0.9rem;
       }
+      
+      /* Theme switcher styles */
+      .theme-switcher {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 1000;
+        display: flex;
+        gap: 0.25rem;
+        background: var(--pico-background-color);
+        border: 1px solid var(--pico-border-color);
+        border-radius: var(--pico-border-radius);
+        padding: 0.25rem;
+        box-shadow: var(--pico-box-shadow);
+      }
+      
+      .theme-btn {
+        background: transparent;
+        border: none;
+        padding: 0.375rem;
+        border-radius: var(--pico-border-radius);
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.2s;
+      }
+      
+      .theme-btn:hover {
+        background: var(--pico-secondary-background);
+      }
+      
+      .theme-btn.active {
+        background: var(--pico-primary-background);
+        color: var(--pico-primary-inverse);
+      }
     </style>
   </head>
   <body>
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+      <button class="theme-btn" data-theme-switcher="light" title="Tema Claro">☀️</button>
+      <button class="theme-btn" data-theme-switcher="dark" title="Tema Escuro">🌙</button>
+      <button class="theme-btn active" data-theme-switcher="auto" title="Tema Automático">🌓</button>
+    </div>
+    
     <div class="container">{% block content %}{% endblock %}</div>
 
     <script>
+      // Theme switcher functionality
       const switchTheme = (theme) => {
         if (theme === "auto") {
           document.documentElement.removeAttribute("data-theme");
         } else {
           document.documentElement.setAttribute("data-theme", theme);
         }
+        
+        // Save preference
+        localStorage.setItem("theme", theme);
+        
+        // Update active button
+        document.querySelectorAll(".theme-btn").forEach(btn => {
+          btn.classList.remove("active");
+        });
+        document.querySelector(`[data-theme-switcher="${theme}"]`).classList.add("active");
       };
 
+      // Load saved theme or default to auto
+      const savedTheme = localStorage.getItem("theme") || "auto";
+      switchTheme(savedTheme);
+
+      // Add click listeners
       document.querySelectorAll("[data-theme-switcher]").forEach(
         (el) => {
           el.addEventListener("click", (e) => {
