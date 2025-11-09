@@ -83,8 +83,14 @@ def index(request):
 def daily_quote(request, day_of_week):
     day_lower = day_of_week.lower()
     if day_lower not in QUOTES:
-        return HttpResponseNotFound(
-            "Day not found! Please enter a valid day of the week."
+        # return HttpResponseNotFound(
+        #     "Day not found! Please enter a valid day of the week."
+        # )
+        return render(
+            request,
+            "quotes/404.html",
+            {"title": "Day Not Found"},
+            status=404,
         )
 
     quote = QUOTES[day_lower]

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - Django Quotes{% endblock %}
+
+{% block description %}The page you're looking for was not found. Return to Django Quotes home.{% endblock %}
+
+{% block content %}
+<div class="error-wrapper">
+  <div class="error-content">
+    <h1>🚫 404 - Page Not Found</h1>
+    
+    <div class="error-message">
+      <p>Oops! The page you're looking for doesn't exist.</p>
+      <p>It might have been moved, deleted, or you entered the wrong URL.</p>
+    </div>
+    
+    <div class="helpful-links">
+      <h3>📍 Where would you like to go?</h3>
+      <div class="action-buttons">
+        <a href="{% url 'quotes-index' %}" class="action-btn primary">📖 Browse Daily Quotes</a>
+        <a href="/landing/home" class="action-btn secondary">🏠 Go to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .error-wrapper {
+    padding: 2rem 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .error-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--pico-primary);
+  }
+  
+  .error-message {
+    background: var(--pico-card-background-color);
+    border: 1px solid var(--pico-card-border-color);
+    border-radius: var(--pico-border-radius);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--pico-card-box-shadow);
+  }
+  
+  .error-message p {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: var(--pico-color);
+    line-height: 1.6;
+  }
+  
+  .error-message p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .helpful-links {
+    margin: 2rem 0;
+  }
+  
+  .helpful-links h3 {
+    margin-bottom: 1rem;
+    color: var(--pico-primary);
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .action-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--pico-border-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    text-align: center;
+    cursor: pointer;
+    min-width: 180px;
+    box-sizing: border-box;
+  }
+  
+  .action-btn.primary {
+    background: var(--pico-primary-background);
+    color: var(--pico-primary-inverse);
+    border-color: var(--pico-primary-background);
+  }
+  
+  .action-btn.primary:hover {
+    background: var(--pico-primary-hover-background);
+    border-color: var(--pico-primary-hover-background);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .action-btn.secondary {
+    background: transparent;
+    color: var(--pico-primary);
+    border-color: var(--pico-primary);
+  }
+  
+  .action-btn.secondary:hover {
+    background: var(--pico-primary);
+    color: var(--pico-primary-inverse);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .error-wrapper {
+      padding: 1rem;
+    }
+    
+    .error-content h1 {
+      font-size: 2rem;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .action-btn {
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+    }
+  }
+</style>
+{% endblock %}
