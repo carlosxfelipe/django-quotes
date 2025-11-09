@@ -1,37 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
   Quotes - {{ title }}
 {% endblock %}
 
-{% block content %}
-<style>
-  .content-wrapper {
-    padding: 1.5rem 1.5rem;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  
-  .content-wrapper h1 {
-    margin-bottom: 1.5rem;
-  }
-  
-  .content-wrapper ul {
-    margin-top: 1rem;
-  }
-  
-  .content-wrapper li {
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Responsivo */
-  @media (max-width: 768px) {
-    .content-wrapper {
-      padding: 1rem 1rem;
-    }
-  }
-</style>
+{% block page_style %}
+<link rel="stylesheet" href="{% static 'quotes/quotes_styles.css' %}">
+{% endblock %}
 
+{% block content %}
 <div class="content-wrapper">
   <h1>Welcome to the Quotes App!</h1>
   
