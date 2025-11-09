@@ -1,8 +1,4 @@
-.content-wrapper {
-  padding: 1.5rem 1.5rem;
-  max-width: 100%;
-  margin: 0 auto;
-}
+/* Quotes specific styles */
 
 .content-wrapper h1 {
   margin-bottom: 1.5rem;
@@ -14,11 +10,4 @@
 
 .content-wrapper li {
   margin-bottom: 0.5rem;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .content-wrapper {
-    padding: 1rem 1rem;
-  }
 }
