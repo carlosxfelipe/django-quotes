@@ -39,4 +39,4 @@ def home(request):
 
 
 def stack_detail(request, tool):
-    return HttpResponse(f"Tecnologia: {tool}")
+    return HttpResponse(f"Technology: {tool}")
