@@ -35,4 +35,10 @@ O app `quotes` foi criado com o comando:
 uv run python manage.py startapp quotes
 ```
 
+O app `landing` foi criado com o comando:
+
+```bash
+uv run python manage.py startapp landing
+```
+
 Consulte a documentação do Django para mais comandos e opções.
