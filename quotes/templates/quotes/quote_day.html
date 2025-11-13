@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Quote - {{ day|capfirst }}{% endblock %}
+
+{% block content %}
+<div class="quote-day-wrapper">
+  <h1>{{ day|capfirst }} Quote</h1>
+  <blockquote class="quote-text">{{ quote }}</blockquote>
+  <a href="/quotes/" class="back-link">← Back to all days</a>
+</div>
+{% endblock %}

@@ -94,7 +94,11 @@ def daily_quote(request, day_of_week):
         )
 
     quote = QUOTES[day_lower]
-    return HttpResponse(f"{day_of_week.capitalize()} Quote: '{quote}'")
+    return render(
+        request,
+        "quotes/quote_day.html",
+        {"day": day_of_week, "quote": quote},
+    )
 
 
 def daily_quote_number(request, day_of_week):
