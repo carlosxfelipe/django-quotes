@@ -63,4 +63,12 @@ uv run python manage.py migrate
 uv run python manage.py shell
 ```
 
+```bash
+uv pip install ipython
+```
+
+```bash
+uv run python manage.py shell --interface=ipython
+```
+
 Consulte a documentação do Django para mais comandos e opções.
