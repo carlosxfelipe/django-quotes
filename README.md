@@ -41,4 +41,10 @@ O app `landing` foi criado com o comando:
 uv run python manage.py startapp landing
 ```
 
+O app `minilibrary` foi criado com o comando:
+
+```bash
+uv run python manage.py startapp minilibrary
+```
+
 Consulte a documentação do Django para mais comandos e opções.
