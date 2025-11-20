@@ -47,4 +47,16 @@ O app `minilibrary` foi criado com o comando:
 uv run python manage.py startapp minilibrary
 ```
 
+```bash
+uv run python manage.py makemigrations
+```
+
+```bash
+uv run python manage.py showmigrations
+```
+
+```bash
+uv run python manage.py migrate
+```
+
 Consulte a documentação do Django para mais comandos e opções.
