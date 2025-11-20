@@ -59,4 +59,8 @@ uv run python manage.py showmigrations
 uv run python manage.py migrate
 ```
 
+```bash
+uv run python manage.py shell
+```
+
 Consulte a documentação do Django para mais comandos e opções.
