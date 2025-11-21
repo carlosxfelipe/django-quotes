@@ -29,46 +29,44 @@ Este projeto é uma aplicação Django para gerenciar e exibir citações.
 
 ### Histórico
 
-O app `quotes` foi criado com o comando:
+- O app `quotes` foi criado com o comando:
+  ```bash
+  uv run python manage.py startapp quotes
+  ```
+  Responsável por exibir e gerenciar citações diárias.
 
-```bash
-uv run python manage.py startapp quotes
-```
+- O app `landing` foi criado com o comando:
+  ```bash
+  uv run python manage.py startapp landing
+  ```
+  Responsável pela página inicial e institucional do projeto.
 
-O app `landing` foi criado com o comando:
+- O app `minilibrary` foi criado com o comando:
+  ```bash
+  uv run python manage.py startapp minilibrary
+  ```
+  Gerencia autores e livros, com modelos `Author` e `Book`.
 
-```bash
-uv run python manage.py startapp landing
-```
+- Comandos de migração utilizados:
+  ```bash
+  uv run python manage.py makemigrations
+  uv run python manage.py showmigrations
+  uv run python manage.py migrate
+  ```
+  Usados para criar e aplicar as migrações do banco de dados.
 
-O app `minilibrary` foi criado com o comando:
+- Comando para acessar o shell interativo:
+  ```bash
+  uv run python manage.py shell
+  uv run python manage.py shell --interface=ipython
+  ```
+  Permite executar scripts e interagir com os modelos.
 
-```bash
-uv run python manage.py startapp minilibrary
-```
+- Script de seed criado em `minilibrary/seed.py` para popular o banco com autores e livros de exemplo usando `bulk_create`.
 
-```bash
-uv run python manage.py makemigrations
-```
-
-```bash
-uv run python manage.py showmigrations
-```
-
-```bash
-uv run python manage.py migrate
-```
-
-```bash
-uv run python manage.py shell
-```
-
-```bash
-uv pip install ipython
-```
-
-```bash
-uv run python manage.py shell --interface=ipython
-```
+- Django Admin disponível em `/admin/` para gerenciar todos os registros, acessível após criar um superusuário com:
+  ```bash
+  uv run python manage.py createsuperuser
+  ```
 
 Consulte a documentação do Django para mais comandos e opções.
