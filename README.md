@@ -69,4 +69,15 @@ Este projeto é uma aplicação Django para gerenciar e exibir citações.
   uv run python manage.py createsuperuser
   ```
 
+---
+
+### API REST com Django Ninja
+
+Este projeto utiliza [Django Ninja](https://django-ninja.dev/) para criar rotas REST no app `minilibrary`:
+
+- `GET /minilibrary/api/authors` — Lista todos os autores cadastrados
+- `GET /minilibrary/api/books` — Lista todos os livros cadastrados
+
+As rotas retornam dados em formato JSON e podem ser acessadas diretamente pelo navegador, curl ou ferramentas como Postman.
+
 Consulte a documentação do Django para mais comandos e opções.
