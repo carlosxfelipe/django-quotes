@@ -77,7 +77,8 @@ Este projeto utiliza [Django Ninja](https://django-ninja.dev/) para criar rotas 
 
 - `GET /minilibrary/api/authors` — Lista todos os autores cadastrados
 - `GET /minilibrary/api/books` — Lista todos os livros cadastrados
+- `GET /minilibrary/api/docs` — Documentação interativa Swagger da API
 
-As rotas retornam dados em formato JSON e podem ser acessadas diretamente pelo navegador, curl ou ferramentas como Postman.
+As rotas retornam dados em formato JSON e podem ser acessadas diretamente pelo navegador, curl ou ferramentas como Postman. A documentação Swagger permite testar e explorar a API de forma visual.
 
 Consulte a documentação do Django para mais comandos e opções.
