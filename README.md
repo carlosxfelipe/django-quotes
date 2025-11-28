@@ -3,35 +3,17 @@
 Este projeto é uma aplicação Django para gerenciar e exibir citações.
 
 ### Como rodar após clonar
-1. Crie e ative o ambiente virtual:
-  ```zsh
-  python3 -m venv .venv
-  source .venv/bin/activate
-  ```
-2. Instale o gerenciador de pacotes `uv` (se não tiver):
+1. Instale o gerenciador de pacotes `uv` (se não tiver):
   ```zsh
   pip install uv
   # ou, alternativamente:
   curl -LsSf https://astral.sh/uv/install.sh | sh
   ```
-3. Instale as dependências do projeto (atenção: o pacote correto é django-ninja, não ninja):
+2. Instale as dependências do projeto e configure tudo automaticamente:
   ```zsh
-  uv pip install django django-ninja
+  uv run setup.py
   ```
-  > Se aparecer algum erro sobre 'ninja', execute:
-  > ```zsh
-  > pip uninstall ninja
-  > uv pip install django-ninja
-  > ```
-4. Aplique as migrações do banco de dados:
-  ```zsh
-  uv run python manage.py migrate
-  ```
-5. Rode o servidor de desenvolvimento:
-  ```zsh
-  uv run python manage.py runserver
-  ```
-6. Acesse no navegador:
+3. Acesse no navegador:
   - Quotes: http://localhost:8000/quotes/
   - Landing: http://localhost:8000/landing/home
 
