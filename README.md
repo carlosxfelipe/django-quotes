@@ -85,6 +85,15 @@ Este projeto é uma aplicação Django para gerenciar e exibir citações.
   uv run python manage.py createsuperuser
   ```
 
+### Como adicionar dependências com uv
+
+Para instalar um pacote e registrar automaticamente nas dependências do projeto (pyproject.toml), use o comando:
+
+```zsh
+uv add django-ninja
+```
+Esse é o comando certo para instalar o pacote com uv e garantir que ele seja incluído nas dependências do projeto.
+
 ---
 
 ### API REST com Django Ninja
