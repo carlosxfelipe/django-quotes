@@ -11,11 +11,8 @@ def run(cmd):
 
 
 if __name__ == "__main__":
-    # Cria ambiente virtual com uv
-    run("uv venv")
-
-    # Instala dependências do pyproject.toml
-    run("uv pip install .")
+    # Instala dependências essenciais
+    run("uv pip install django django-ninja")
 
     # Aplica migrações
     run("uv run python manage.py migrate")
