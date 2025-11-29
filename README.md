@@ -3,22 +3,27 @@
 Este projeto é uma aplicação Django para gerenciar e exibir citações.
 
 ### Como rodar após clonar
+
 1. Instale o gerenciador de pacotes `uv` (se não tiver):
-  - **macOS e Linux:**
-    ```zsh
-    curl -LsSf https://astral.sh/uv/install.sh | sh
-    ```
-  - **Windows:**
-    ```powershell
-    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-    ```
+   - **macOS e Linux:**
+     ```zsh
+     curl -LsSf https://astral.sh/uv/install.sh | sh
+     ```
+   - **Windows:**
+     ```powershell
+     powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+     ```
 2. Instale as dependências do projeto e configure tudo automaticamente:
-  ```zsh
-  uv run setup.py
-  ```
-3. Acesse no navegador:
-  - Quotes: http://localhost:8000/quotes/
-  - Landing: http://localhost:8000/landing/home
+   ```zsh
+   uv run setup.py
+   ```
+3. Após o primeiro clone, para rodar o projeto, execute:
+   ```zsh
+   uv run dev.py
+   ```
+4. Acesse no navegador:
+   - Quotes: http://localhost:8000/quotes/
+   - Landing: http://localhost:8000/landing/home
 
 ### Como adicionar um novo app
 
