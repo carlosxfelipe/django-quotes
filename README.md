@@ -20,73 +20,22 @@ Este projeto é uma aplicação Django para gerenciar e exibir citações.
   - Quotes: http://localhost:8000/quotes/
   - Landing: http://localhost:8000/landing/home
 
-### Pré-requisitos
+### Como adicionar um novo app
 
-- [Python](https://www.python.org/) instalado
-- [uv](https://github.com/charliermarsh/uv) instalado para executar comandos
-- **Pacote correto:** [django-ninja](https://django-ninja.dev/) (não instale o pacote chamado apenas 'ninja')
+Para adicionar um novo app Django ao projeto, siga os passos abaixo:
 
-### Como iniciar o projeto
-
-1. **Aplicar as migrações do banco de dados:**
-
-   ```bash
-   uv run python manage.py migrate
-   ```
-
-2. **Executar o servidor de desenvolvimento:**
-
-   ```bash
-   uv run python manage.py runserver
-   ```
-
-3. **Acessar a aplicação:**
-   - **Quotes App:** http://localhost:8000/quotes/
-   - **Landing Page:** http://localhost:8000/landing/home
-
----
-
-### Histórico
-
-- O app `quotes` foi criado com o comando:
+1. Crie o app substituindo `nome` pelo nome desejado:
   ```bash
-  uv run python manage.py startapp quotes
+  uv run python manage.py startapp nome
   ```
-  Responsável por exibir e gerenciar citações diárias.
 
-- O app `landing` foi criado com o comando:
-  ```bash
-  uv run python manage.py startapp landing
-  ```
-  Responsável pela página inicial e institucional do projeto.
+2. Adicione o app criado à lista `INSTALLED_APPS` em `config/settings.py` para ativá-lo no projeto.
 
-- O app `minilibrary` foi criado com o comando:
-  ```bash
-  uv run python manage.py startapp minilibrary
-  ```
-  Gerencia autores e livros, com modelos `Author` e `Book`.
+3. (Opcional) Crie as rotas do app em `nome/urls.py` e inclua-as no arquivo principal de rotas (`config/urls.py`).
 
-- Comandos de migração utilizados:
-  ```bash
-  uv run python manage.py makemigrations
-  uv run python manage.py showmigrations
-  uv run python manage.py migrate
-  ```
-  Usados para criar e aplicar as migrações do banco de dados.
+4. (Opcional) Crie modelos, views e templates conforme necessário para o seu app.
 
-- Comando para acessar o shell interativo:
-  ```bash
-  uv run python manage.py shell
-  uv run python manage.py shell --interface=ipython
-  ```
-  Permite executar scripts e interagir com os modelos.
-
-- Script de seed criado em `minilibrary/seed.py` para popular o banco com autores e livros de exemplo usando `bulk_create`.
-
-- Django Admin disponível em `/admin/` para gerenciar todos os registros, acessível após criar um superusuário com:
-  ```bash
-  uv run python manage.py createsuperuser
-  ```
+Consulte a [documentação oficial do Django](https://docs.djangoproject.com/pt-br/4.2/intro/tutorial01/) para mais detalhes e boas práticas.
 
 ### Como adicionar dependências com uv
 

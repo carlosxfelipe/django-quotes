@@ -11,9 +11,6 @@ def run(cmd):
 
 
 if __name__ == "__main__":
-    # Instala dependências essenciais
-    run("uv pip install django django-ninja")
-
     # Aplica migrações
     run("uv run python manage.py migrate")
 
